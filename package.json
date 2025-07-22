@@ -1,13 +1,14 @@
 {
   "name": "sevak-frontend",
   "version": "0.1.0",
-  "proxy": "http://localhost:5000",  
+  "proxy": "http://localhost:5000",
   "private": true,
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "npx react-scripts build",   
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "install-backend": "npm install --prefix backend"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
