@@ -17,13 +17,12 @@ function UserDashboardScreen() {
       try {
         setLoading(true);
         // Fetch user profile (assuming an endpoint like /api/users/profile or /api/auth/profile)
-        // For simplicity now, we'll fetch from a dedicated user endpoint.
-        // If your auth/login response already gives enough user data, you might store it in context.
-        const userProfileRes = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/auth/profile`, { withCredentials: true });
+        // For simplicity now, we'll assume '/api/auth/profile' exists or get user from context
+        const userProfileRes = await axios.get('/api/auth/profile', { withCredentials: true }); // SIMPLIFIED PATH
         setUser(userProfileRes.data);
 
         // Fetch user's bookings
-        const bookingsRes = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/bookings/my`, { withCredentials: true });
+        const bookingsRes = await axios.get('/api/bookings/my', { withCredentials: true }); // SIMPLIFIED PATH
         setBookings(bookingsRes.data);
 
         setLoading(false);
@@ -55,7 +54,7 @@ function UserDashboardScreen() {
       setError(null);
       try {
         const { data } = await axios.put(
-          `${process.env.REACT_APP_API_BASE_URL}/api/bookings/${bookingId}/cancel`,
+          `/api/bookings/${bookingId}/cancel`, // SIMPLIFIED PATH
           {}, // No body needed for cancel
           { withCredentials: true }
         );

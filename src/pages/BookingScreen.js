@@ -46,7 +46,7 @@ function BookingScreen() {
     const fetchServiceDetails = async () => {
       try {
         setLoadingService(true);
-        const { data } = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/services/${serviceId}`);
+        const { data } = await axios.get(`/api/services/${serviceId}`); // SIMPLIFIED PATH
         setService(data);
         setLoadingService(false);
       } catch (err) {
@@ -66,9 +66,6 @@ function BookingScreen() {
 
   // 2. Handle Geocoding (Conceptual for now, real implementation would involve Nominatim API call)
   const handleAddressChange = (e, field) => {
-    // This is where you'd typically trigger a Nominatim API call
-    // or use an auto-suggest library that integrates with geocoding.
-    // For this demo, we'll just update the state.
     const value = e.target.value;
     switch (field) {
       case 'street': setStreetAddress(value); break;
@@ -77,34 +74,6 @@ function BookingScreen() {
       case 'zipCode': setZipCode(value); break;
       default: break;
     }
-    // In a real application, after changing address fields,
-    // you would debounce a call to Nominatim like this:
-    /*
-    if (streetAddress && city && state && zipCode) {
-        // Debounce this call to avoid too many requests
-        setTimeout(async () => {
-            try {
-                const query = `${streetAddress}, ${city}, ${state}, ${zipCode}, India`;
-                const nominatimResponse = await axios.get(
-                    `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(query)}&format=json&limit=1`,
-                    { headers: { 'User-Agent': 'SEVAK-WebApp/1.0' } } // Important for Nominatim policy
-                );
-                if (nominatimResponse.data && nominatimResponse.data.length > 0) {
-                    setLatitude(nominatimResponse.data[0].lat);
-                    setLongitude(nominatimResponse.data[0].lon);
-                } else {
-                    console.warn('Address not found by Nominatim, lat/lon not set.');
-                    setLatitude('');
-                    setLongitude('');
-                }
-            } catch (geoError) {
-                console.error('Geocoding error:', geoError);
-                setLatitude('');
-                setLongitude('');
-            }
-        }, 1000); // Debounce by 1 second
-    }
-    */
   };
 
 
@@ -163,13 +132,12 @@ function BookingScreen() {
 
     try {
       const { data } = await axios.post(
-        `${process.env.REACT_APP_API_BASE_URL}/api/bookings`,
+        '/api/bookings', // SIMPLIFIED PATH
         bookingData,
         config
       );
       setBookingConfirmation(data); // Store the entire response for receipt
       setShowReceipt(true); // Show the receipt popup
-      // No navigation here, user will interact with receipt popup first
       setLoadingBooking(false);
 
     } catch (err) {
@@ -201,7 +169,7 @@ function BookingScreen() {
     <div className={styles.bookingScreen}>
       <div className={styles.container}>
         <h1 className={styles.pageTitle}>Book: {service.name}</h1>
-        <p className={styles.pageSubtitle}>Price: ₹{service.price} per {service.category.includes('Care') ? 'day/visit' : 'unit'}</p> {/* Adjust unit display based on category */}
+        <p className={styles.pageSubtitle}>Price: ₹{service.price} per {service.category.includes('Care') ? 'day/visit' : 'unit'}</p>
 
         <form onSubmit={submitBookingHandler} className={styles.bookingForm}>
           {/* Messages */}
@@ -251,12 +219,12 @@ function BookingScreen() {
             <div className={styles.formGroup}>
               <label htmlFor="patientContact">Contact Number</label>
               <input
-                type="tel" // Use tel for phone numbers
+                type="tel"
                 id="patientContact"
                 placeholder="e.g., 9876543210"
                 value={patientContact}
                 onChange={(e) => setPatientContact(e.target.value)}
-                pattern="[0-9]{10}" // Basic 10-digit validation
+                pattern="[0-9]{10}"
                 title="Please enter a 10-digit phone number"
                 required
               />
@@ -308,20 +276,11 @@ function BookingScreen() {
                   placeholder="e.g., 123456"
                   value={zipCode}
                   onChange={(e) => handleAddressChange(e, 'zipCode')}
-                  pattern="[0-9]{6}" // Basic 6-digit validation for Indian pin codes
+                  pattern="[0-9]{6}"
                   title="Please enter a 6-digit zip code"
                   required
                 />
               </div>
-              {/* These are conceptual for now, populated by Nominatim in a full implementation */}
-              {/* <div className={styles.formGroup}>
-                <label htmlFor="latitude">Latitude (Auto-filled)</label>
-                <input type="text" id="latitude" value={latitude} readOnly disabled />
-              </div>
-              <div className={styles.formGroup}>
-                <label htmlFor="longitude">Longitude (Auto-filled)</label>
-                <input type="text" id="longitude" value={longitude} readOnly disabled />
-              </div> */}
             </div>
           </section>
 
@@ -336,7 +295,7 @@ function BookingScreen() {
                   id="selectedDate"
                   value={selectedDate}
                   onChange={(e) => setSelectedDate(e.target.value)}
-                  min={new Date().toISOString().split('T')[0]} // Cannot select past dates
+                  min={new Date().toISOString().split('T')[0]}
                   required
                 />
               </div>

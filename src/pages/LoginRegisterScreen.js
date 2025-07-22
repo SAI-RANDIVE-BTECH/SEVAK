@@ -17,7 +17,6 @@ function LoginRegisterScreen() {
 
   // Basic check if user is already logged in (can be refined with actual global state later)
   useEffect(() => {
-    // In a real app, you'd check for a user context or a persistent login state here
     // For now, if we have a success message or error, clear it after some time
     if (error) {
       const timer = setTimeout(() => setError(null), 5000);
@@ -50,19 +49,18 @@ function LoginRegisterScreen() {
       headers: {
         'Content-Type': 'application/json',
       },
-      withCredentials: true, // IMPORTANT: Allows cookies to be sent with cross-origin requests
+      withCredentials: true, // IMPORTANT: Allows cookies to be sent with requests (handled by proxy)
     };
 
     try {
       if (isLogin) {
         // Login Logic
         const { data } = await axios.post(
-          `${process.env.REACT_APP_API_BASE_URL}/api/auth/login`, // Use environment variable for API URL
+          '/api/auth/login', // SIMPLIFIED PATH
           { email, password },
           config
         );
         setMessage(data.message || 'Login Successful!');
-        // In a real app, you'd update a global user state/context here
         console.log('Logged in user:', data);
         navigate('/dashboard'); // Redirect to dashboard on successful login
 
@@ -75,7 +73,7 @@ function LoginRegisterScreen() {
         }
 
         const { data } = await axios.post(
-          `${process.env.REACT_APP_API_BASE_URL}/api/auth/register`,
+          '/api/auth/register', // SIMPLIFIED PATH
           { name, email, password },
           config
         );
@@ -117,7 +115,7 @@ function LoginRegisterScreen() {
 
           {error && <div className={styles.errorMessage}>{error}</div>}
           {message && <div className={styles.successMessage}>{message}</div>}
-          {loading && <div className={styles.loadingMessage}>Loading...</div>} {/* Simple loading indicator */}
+          {loading && <div className={styles.loadingMessage}>Loading...</div>}
 
           {!isLogin && (
             <div className={styles.formGroup}>

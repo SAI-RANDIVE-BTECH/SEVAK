@@ -12,7 +12,7 @@ function ServicesScreen() {
     const fetchServices = async () => {
       try {
         setLoading(true);
-        const { data } = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/services`);
+        const { data } = await axios.get('/api/services'); // SIMPLIFIED PATH
         setServices(data);
         setLoading(false);
       } catch (err) {

@@ -1,0 +1,23 @@
+# Node modules
+node_modules/
+
+# Environments (CRUCIAL: NEVER COMMIT SENSITIVE INFO)
+.env                  # For frontend .env at root
+backend/.env          # For backend .env
+
+# Build folders
+build/
+dist/
+.parcel-cache/        # If you ever use Parcel
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# OS generated files
+.DS_Store
+.idea/
+.vscode/
+*.swp
