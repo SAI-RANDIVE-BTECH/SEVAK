@@ -1,0 +1,124 @@
+.header {
+  background-color: var(--color-professional-nav); /* Dark Teal/Forest Green for navigation */
+  padding: 15px 0;
+  box-shadow: var(--box-shadow-md); /* Subtle shadow for depth */
+  position: sticky; /* Makes header stick to top on scroll */
+  top: 0;
+  z-index: 1000; /* Ensures it stays on top of other content */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+.logoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.logo {
+  color: white; /* Or a contrasting color from your palette */
+  font-size: 2.5rem; /* Larger font for logo */
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: color var(--transition-speed);
+}
+
+.logo:hover {
+  color: var(--color-secondary-accent); /* Soft Gold/Mustard on hover */
+}
+
+.tagline {
+  color: rgba(255, 255, 255, 0.8); /* Slightly transparent white */
+  font-size: 0.85rem;
+  margin-top: -5px; /* Pull it slightly closer to the logo */
+}
+
+.nav {
+  margin-left: auto; /* Pushes nav to the right */
+}
+
+.navList {
+  list-style: none;
+  display: flex;
+  gap: 30px; /* Space between nav items */
+  align-items: center;
+}
+
+.navLink {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 500;
+  position: relative;
+  transition: color var(--transition-speed), transform 0.1s ease-out;
+  padding: 5px 0; /* Padding for hover effect */
+}
+
+.navLink::after { /* Underline effect on hover */
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-primary-accent); /* Vibrant Red/Coral */
+  transform: scaleX(0); /* Start hidden */
+  transform-origin: bottom right;
+  transition: transform var(--transition-speed) ease-out;
+}
+
+.navLink:hover::after {
+  transform: scaleX(1); /* Expand on hover */
+  transform-origin: bottom left;
+}
+
+.navLink:hover {
+  color: var(--color-secondary-accent); /* Soft Gold/Mustard on hover */
+  transform: translateY(-2px); /* Subtle lift effect */
+}
+
+.ctaButton {
+  background-color: var(--color-primary-accent); /* Vibrant Red/Coral */
+  color: white;
+  padding: 10px 20px;
+  border-radius: var(--border-radius-sm);
+  font-weight: 600;
+  transition: background-color var(--transition-speed), transform 0.1s ease-out;
+}
+
+.ctaButton:hover {
+  background-color: var(--color-strong-heading); /* Deep Maroon/Burgundy on hover */
+  color: white; /* Keep text white on hover */
+  transform: translateY(-2px); /* Subtle lift */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .nav {
+    margin-left: 0;
+    margin-top: 15px;
+  }
+
+  .navList {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .logoContainer {
+    align-items: center;
+  }
+}

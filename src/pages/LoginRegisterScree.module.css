@@ -1,0 +1,257 @@
+.loginRegisterScreen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - var(--header-height) - var(--footer-height)); /* Adjust based on header/footer height */
+  padding: 40px 20px; /* Padding for screen edges */
+  background: linear-gradient(135deg, rgba(var(--color-strong-heading-rgb), 0.1), rgba(var(--color-professional-nav-rgb), 0.1));
+  /* You can use a background image for more visual appeal too */
+}
+
+/* Glassmorphism Container */
+.formContainer {
+  position: relative;
+  width: 100%;
+  max-width: 450px; /* Maximum width of the form container */
+  background: rgba(255, 255, 255, 0.15); /* Translucent white background */
+  border-radius: var(--border-radius-md);
+  padding: 40px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15); /* Stronger shadow for depth */
+  backdrop-filter: blur(10px); /* The magic of Glassmorphism */
+  -webkit-backdrop-filter: blur(10px); /* For Safari support */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle white border */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden; /* For smooth toggle animation */
+}
+
+.formContainer h2 {
+  color: var(--color-strong-heading);
+  font-size: 2rem;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* Form Toggle (Sign In / Register tabs) */
+.formToggle {
+  display: flex;
+  width: 100%;
+  position: relative;
+  margin-bottom: 30px;
+  border-radius: var(--border-radius-sm);
+  overflow: hidden; /* Hide excess for active background */
+  background-color: rgba(var(--color-deep-text-rgb), 0.1); /* Slightly translucent background for tabs */
+}
+
+.toggleButton {
+  flex: 1;
+  padding: 12px 0;
+  border: none;
+  background-color: transparent;
+  color: var(--color-deep-text);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color var(--transition-speed);
+  position: relative;
+  z-index: 1; /* Keep text above background */
+}
+
+.toggleButton.active {
+  color: white; /* Text color when active */
+}
+
+.toggleBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%; /* Half width for two buttons */
+  height: 100%;
+  background: linear-gradient(45deg, var(--color-primary-accent), var(--color-strong-heading));
+  border-radius: var(--border-radius-sm);
+  transition: transform 0.3s ease-in-out; /* Smooth slide animation */
+  z-index: 0;
+}
+
+.toggleLogin {
+  transform: translateX(0); /* For Sign In */
+}
+
+.toggleRegister {
+  transform: translateX(100%); /* For Register, slides to right */
+}
+
+/* Form Styling */
+.form {
+  width: 100%;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--color-deep-text);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.formGroup input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid rgba(255, 255, 255, 0.4); /* Glass-like border */
+  border-radius: var(--border-radius-sm);
+  background: rgba(255, 255, 255, 0.05); /* Very slight background */
+  color: var(--color-deep-text);
+  font-size: 1rem;
+  transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.formGroup input::placeholder {
+  color: rgba(var(--color-deep-text-rgb), 0.6);
+}
+
+.formGroup input:focus {
+  outline: none;
+  border-color: var(--color-primary-accent);
+  box-shadow: 0 0 0 3px rgba(var(--color-primary-accent-rgb), 0.2); /* Focus ring */
+}
+
+.errorMessage {
+  background-color: #ffdddd;
+  color: #d8000c;
+  padding: 10px;
+  border-radius: var(--border-radius-sm);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.successMessage {
+  background-color: #ddffdd;
+  color: #28a745;
+  padding: 10px;
+  border-radius: var(--border-radius-sm);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.loadingMessage {
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--color-professional-nav);
+}
+
+.forgotPassword {
+  display: block;
+  text-align: right;
+  margin-top: -10px; /* Pull closer to password field */
+  margin-bottom: 20px;
+  color: var(--color-primary-accent);
+  font-size: 0.9rem;
+  transition: color var(--transition-speed);
+}
+
+.forgotPassword:hover {
+  color: var(--color-strong-heading);
+}
+
+.submitButton {
+  width: 100%;
+  padding: 15px;
+  border-radius: var(--border-radius-md);
+  font-size: 1.1rem;
+  font-weight: 600;
+  background: linear-gradient(45deg, var(--color-primary-accent), var(--color-strong-heading));
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: transform 0.1s ease-out, box-shadow var(--transition-speed);
+  box-shadow: var(--box-shadow-sm);
+}
+
+.submitButton:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--box-shadow-md);
+}
+
+.submitButton:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.arrow {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+/* Social Login */
+.socialLogin {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.socialLogin p {
+  color: var(--color-deep-text);
+  margin-bottom: 15px;
+}
+
+.socialIcons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.socialIcon {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2); /* Translucent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  color: var(--color-strong-heading);
+  transition: background-color var(--transition-speed), transform 0.1s ease-out;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.socialIcon:hover {
+  background-color: var(--color-primary-accent); /* Vibrant Red/Coral on hover */
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: var(--box-shadow-sm);
+}
+
+/* Responsive adjustments */
+@media (max-width: 500px) {
+  .formContainer {
+    padding: 30px 20px;
+  }
+  .formContainer h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+  .toggleButton {
+    font-size: 1rem;
+    padding: 10px 0;
+  }
+  .submitButton {
+    font-size: 1rem;
+    padding: 12px;
+  }
+}
+
+/* Add these to :root in index.css for convenience if not already there */
+/* --color-strong-heading-rgb: 92, 14, 20;  (RGB values for rgba backgrounds) */
+/* --color-professional-nav-rgb: 23, 78, 79; */
+/* --color-primary-accent-rgb: 232, 79, 94; */
+/* --color-deep-text-rgb: 16, 60, 31; */

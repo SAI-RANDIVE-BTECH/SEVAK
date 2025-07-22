@@ -1,0 +1,309 @@
+.bookingScreen {
+  padding: 40px 0;
+  background-color: var(--color-very-light-background);
+}
+
+.container {
+  max-width: 900px; /* Wider container for forms */
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.pageTitle {
+  font-family: 'Reddit Sans', sans-serif;
+  color: var(--color-strong-heading);
+  font-size: 2.8rem;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.pageSubtitle {
+  font-size: 1.1rem;
+  color: var(--color-deep-text);
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: 500;
+}
+
+/* Messages */
+.loadingMessage,
+.errorMessage,
+.noServiceFound {
+  text-align: center;
+  padding: 20px;
+  font-size: 1.1rem;
+  border-radius: var(--border-radius-md);
+  margin-top: 30px;
+  color: white; /* Default white for messages */
+}
+
+.loadingMessage {
+  background-color: var(--color-professional-nav);
+}
+
+.errorMessage {
+  background-color: var(--color-primary-accent);
+}
+
+.noServiceFound {
+  background-color: var(--color-secondary-accent);
+  color: var(--color-strong-heading);
+}
+
+/* Booking Form Styles */
+.bookingForm {
+  background-color: white;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--box-shadow-md);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* Space between sections */
+}
+
+.formSection {
+  border: 1px solid var(--color-light-background);
+  border-radius: var(--border-radius-md);
+  padding: 30px;
+}
+
+.sectionHeading {
+  font-size: 1.8rem;
+  color: var(--color-professional-nav);
+  margin-bottom: 25px;
+  border-bottom: 2px solid var(--color-light-background);
+  padding-bottom: 10px;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive 2-column grid */
+  gap: 20px;
+}
+
+.formGroup {
+  margin-bottom: 0; /* Remove default margin from individual groups in grid */
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--color-deep-text);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.formGroup input[type="text"],
+.formGroup input[type="email"],
+.formGroup input[type="password"],
+.formGroup input[type="tel"],
+.formGroup input[type="date"],
+.formGroup input[type="time"],
+.formGroup input[type="number"],
+.formGroup select,
+.formGroup textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid var(--color-light-background);
+  border-radius: var(--border-radius-sm);
+  font-size: 1rem;
+  color: var(--color-deep-text);
+  background-color: var(--color-very-light-background); /* Slightly different background for inputs */
+  transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+  outline: none;
+  border-color: var(--color-primary-accent);
+  box-shadow: 0 0 0 3px rgba(var(--color-primary-accent-rgb), 0.2);
+}
+
+.formGroup textarea {
+  resize: vertical; /* Allow vertical resizing for textareas */
+}
+
+/* Submit Button */
+.submitBookingButton {
+  width: 100%;
+  padding: 15px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  background-color: var(--color-success-accent); /* Bright Green for booking confirmation */
+  color: var(--color-strong-heading);
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  transition: background-color var(--transition-speed), transform 0.1s ease-out;
+  box-shadow: var(--box-shadow-sm);
+}
+
+.submitBookingButton:hover {
+  background-color: #7BCF52; /* Slightly darker green */
+  transform: translateY(-2px);
+  box-shadow: var(--box-shadow-md);
+}
+
+.submitBookingButton:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  transform: translateY(0);
+  box-shadow: none;
+  color: #666;
+}
+
+/* --- Receipt Popup Styles --- */
+.receiptOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000; /* Above all other content */
+}
+
+.receiptPopup {
+  background-color: white;
+  border-radius: var(--border-radius-md);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  padding: 40px;
+  width: 90%;
+  max-width: 600px; /* Max width for receipt */
+  position: relative;
+  text-align: center;
+  animation: fadeInScale 0.3s ease-out; /* Simple entry animation */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.closeButton {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--color-strong-heading);
+  cursor: pointer;
+  padding: 5px 10px;
+  transition: color 0.2s ease-out;
+}
+
+.closeButton:hover {
+  color: var(--color-primary-accent);
+}
+
+.receiptTitle {
+  font-size: 2.2rem;
+  color: var(--color-success-accent); /* Bright Green */
+  margin-bottom: 10px;
+}
+
+.receiptMessage {
+  font-size: 1.1rem;
+  color: var(--color-deep-text);
+  margin-bottom: 30px;
+  font-weight: 500;
+}
+
+.receiptDetails {
+  background-color: var(--color-light-background);
+  border-radius: var(--border-radius-sm);
+  padding: 20px;
+  text-align: left;
+  line-height: 1.8;
+}
+
+.receiptDetails h3 {
+  color: var(--color-professional-nav);
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  border-bottom: 1px dashed rgba(var(--color-professional-nav-rgb), 0.3);
+  padding-bottom: 10px;
+}
+
+.receiptDetails p {
+  color: var(--color-deep-text);
+  font-size: 1rem;
+}
+
+.receiptDetails strong {
+  color: var(--color-strong-heading);
+}
+
+.walletBalance {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-primary-accent);
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px dashed rgba(var(--color-primary-accent-rgb), 0.3);
+}
+
+.receiptFooter {
+  margin-top: 20px;
+}
+
+.viewDashboardButton {
+  background-color: var(--color-professional-nav);
+  color: white;
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  border-radius: var(--border-radius-md);
+  margin-top: 15px;
+}
+
+.viewDashboardButton:hover {
+  background-color: var(--color-strong-heading);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .pageTitle {
+    font-size: 2.2rem;
+  }
+  .pageSubtitle {
+    font-size: 1rem;
+  }
+  .bookingForm {
+    padding: 30px 20px;
+  }
+  .formSection {
+    padding: 20px;
+  }
+  .sectionHeading {
+    font-size: 1.6rem;
+  }
+  .formGrid {
+    grid-template-columns: 1fr; /* Single column on small screens */
+  }
+  .receiptPopup {
+    padding: 30px 20px;
+  }
+  .receiptTitle {
+    font-size: 1.8rem;
+  }
+  .receiptMessage {
+    font-size: 1rem;
+  }
+  .receiptDetails h3 {
+    font-size: 1.2rem;
+  }
+}

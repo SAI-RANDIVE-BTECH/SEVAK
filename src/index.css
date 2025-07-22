@@ -1,0 +1,131 @@
+/* Font Imports */
+/* For SEVAK name and tagline: 'Bebas Neue' as a substitute for 'OHHO' for prototyping */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+/* For all other text: 'Reddit Sans' */
+@import url('https://fonts.googleapis.com/css2?family=Reddit+Sans:ital,wght@0,200..900;1,200..900&display=swap');
+
+/* Basic CSS Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px; /* Base font size */
+}
+
+body {
+  font-family: 'Reddit Sans', sans-serif; /* Default font for most text */
+  line-height: 1.6;
+  background-color: #F3E5C3; /* Very Light Background/Cream */
+  color: #103C1F; /* Deep Background/Text (for default text color) */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Global Variables for Color Palette */
+:root {
+  /* HEX Color Variables */
+  --color-primary-accent: #E84F5E; /* Vibrant Red/Coral */
+  --color-light-background: #FCDFC5; /* Light Background/Cream */
+  --color-strong-heading: #5C0E14; /* Deep Maroon/Burgundy */
+  --color-secondary-accent: #F0E193; /* Soft Gold/Mustard */
+  --color-very-light-background: #F3E5C3; /* Very Light Background/Cream */
+  --color-professional-nav: #174E4F; /* Dark Teal/Forest Green */
+  --color-success-accent: #8ED968; /* Bright Green/Lime */
+  --color-deep-text: #103C1F; /* Very Dark Green */
+
+  /* RGB values for rgba backgrounds / transparency */
+  --color-primary-accent-rgb: 232, 79, 94;
+  --color-light-background-rgb: 252, 223, 197;
+  --color-strong-heading-rgb: 92, 14, 20;
+  --color-secondary-accent-rgb: 240, 225, 147;
+  --color-very-light-background-rgb: 243, 229, 195;
+  --color-professional-nav-rgb: 23, 78, 79;
+  --color-success-accent-rgb: 142, 217, 104;
+  --color-deep-text-rgb: 16, 60, 31;
+
+  /* Additional general variables */
+  --transition-speed: 0.3s ease-in-out;
+  --border-radius-sm: 5px;
+  --border-radius-md: 10px;
+  --box-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --box-shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
+  
+  /* Optional: Define header/footer heights if using calc for min-height in layout */
+  --header-height: 80px; /* Adjust based on your header's actual height */
+  --footer-height: 120px; /* Adjust based on your footer's actual height */
+}
+
+/* Global Font Classes */
+.font-logo {
+  font-family: 'Bebas Neue', sans-serif; /* For SEVAK logo/tagline */
+}
+
+.font-body {
+  font-family: 'Reddit Sans', sans-serif; /* For general text */
+}
+
+/* Basic Link Styling */
+a {
+  color: var(--color-primary-accent);
+  text-decoration: none;
+  transition: color var(--transition-speed);
+}
+
+a:hover {
+  color: var(--color-strong-heading);
+}
+
+/* Buttons (Base Styles - will be refined in components.css) */
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: var(--border-radius-sm);
+  background-color: var(--color-primary-accent);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color var(--transition-speed), transform 0.1s ease-out;
+}
+
+button:hover {
+  background-color: var(--color-strong-heading);
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* Main App Container for layout (optional, or use specific layout.css later) */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex-grow: 1; /* Allows main content to take up available space */
+  padding: 20px; /* Basic padding */
+  max-width: 1200px; /* Max width for content */
+  margin: 0 auto; /* Center content */
+  width: 100%; /* Ensure it takes full width within max-width */
+}
+
+/* Utility Classes (examples, more can be added as needed) */
+.text-center {
+  text-align: center;
+}
+
+.margin-top-20 {
+  margin-top: 20px;
+}

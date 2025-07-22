@@ -1,0 +1,162 @@
+/* Global Variables for Color Palette - Duplicated for static pages */
+:root {
+  /* HEX Color Variables */
+  --color-primary-accent: #E84F5E; /* Vibrant Red/Coral */
+  --color-light-background: #FCDFC5; /* Light Background/Cream */
+  --color-strong-heading: #5C0E14; /* Deep Maroon/Burgundy */
+  --color-secondary-accent: #F0E193; /* Soft Gold/Mustard */
+  --color-very-light-background: #F3E5C3; /* Very Light Background/Cream */
+  --color-professional-nav: #174E4F; /* Dark Teal/Forest Green */
+  --color-success-accent: #8ED968; /* Bright Green/Lime */
+  --color-deep-text: #103C1F; /* Very Dark Green */
+
+  /* RGB values for rgba backgrounds / transparency */
+  --color-primary-accent-rgb: 232, 79, 94;
+  --color-light-background-rgb: 252, 223, 197;
+  --color-strong-heading-rgb: 92, 14, 20;
+  --color-secondary-accent-rgb: 240, 225, 147;
+  --color-very-light-background-rgb: 243, 229, 195;
+  --color-professional-nav-rgb: 23, 78, 79;
+  --color-success-accent-rgb: 142, 217, 104;
+  --color-deep-text-rgb: 16, 60, 31;
+
+  /* Additional general variables */
+  --transition-speed: 0.3s ease-in-out;
+  --border-radius-sm: 5px;
+  --border-radius-md: 10px;
+  --box-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --box-shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Font Imports - Duplicated for static pages */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Reddit+Sans:ital,wght@0,200..900;1,200..900&display=swap');
+
+/* Footer.module.css content, adjusted for plain CSS */
+.footer {
+  background-color: var(--color-professional-nav); /* Same as header for consistency */
+  color: white;
+  padding: 40px 0;
+  margin-top: auto; /* Pushes the footer to the bottom if content is short */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow at the top */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-wrap: wrap; /* Allows sections to wrap on smaller screens */
+  justify-content: space-between;
+  gap: 30px; /* Space between sections */
+}
+
+.footer-section { /* Renamed from styles.footerSection */
+  flex: 1; /* Each section takes equal flexible space */
+  min-width: 250px; /* Minimum width before wrapping */
+}
+
+.footer-logo { /* Renamed from styles.footerLogo */
+  color: white;
+  font-family: 'Bebas Neue', sans-serif; /* For SEVAK logo/tagline */
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 10px;
+  display: block; /* Make it a block to control margin */
+  text-decoration: none; /* Ensure no underline */
+}
+
+.tagline {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 15px;
+  font-family: 'Reddit Sans', sans-serif;
+}
+
+.copyright {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: 'Reddit Sans', sans-serif;
+}
+
+.section-heading { /* Renamed from styles.sectionHeading */
+  font-size: 1.2rem;
+  color: var(--color-secondary-accent); /* Soft Gold/Mustard */
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-family: 'Reddit Sans', sans-serif;
+}
+
+.footer-links { /* Renamed from styles.footerLinks */
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.link {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color var(--transition-speed);
+  font-family: 'Reddit Sans', sans-serif;
+}
+
+.link:hover {
+  color: var(--color-primary-accent); /* Vibrant Red/Coral on hover */
+}
+
+.social-icons { /* Renamed from styles.socialIcons */
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.social-link { /* Renamed from styles.socialLink */
+  color: white;
+  font-size: 1.5rem;
+  transition: color var(--transition-speed), transform 0.1s ease-out;
+  text-decoration: none; /* Ensure no underline */
+}
+
+.social-link:hover {
+  color: var(--color-primary-accent); /* Vibrant Red/Coral on hover */
+  transform: translateY(-2px);
+}
+
+.contact-info { /* Renamed from styles.contactInfo */
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 10px;
+  font-family: 'Reddit Sans', sans-serif;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-section { /* Renamed */
+    margin-bottom: 30px;
+    min-width: unset; /* Remove min-width on small screens */
+  }
+
+  .footer-section:last-child { /* Renamed */
+    margin-bottom: 0; /* No bottom margin for the last section */
+  }
+
+  .footer-logo { /* Renamed */
+    text-align: center;
+  }
+
+  .social-icons { /* Renamed */
+    justify-content: center; /* Center social icons */
+  }
+}

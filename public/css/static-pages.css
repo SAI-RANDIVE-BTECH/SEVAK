@@ -1,0 +1,123 @@
+/* Basic CSS Reset - Duplicated for static pages */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px; /* Base font size */
+}
+
+body {
+  font-family: 'Reddit Sans', sans-serif; /* Default font for most text */
+  line-height: 1.6;
+  background-color: var(--color-very-light-background); /* Very Light Background/Cream */
+  color: var(--color-deep-text); /* Deep Background/Text (for default text color) */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure body takes full height for sticky footer */
+}
+
+/* Main content area for static pages */
+.static-main-content {
+  flex-grow: 1; /* Allows main content to take up available space */
+  padding: 40px 20px; /* Basic padding */
+  max-width: 1000px; /* Max width for content */
+  margin: 0 auto; /* Center content */
+  width: 100%; /* Ensure it takes full width within max-width */
+  background-color: white; /* Content background */
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--box-shadow-md);
+  margin-bottom: 40px; /* Space before footer */
+}
+
+/* Headings */
+.static-main-content h1 {
+  font-family: 'Reddit Sans', sans-serif;
+  color: var(--color-strong-heading);
+  font-size: 2.8rem;
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.static-main-content h1::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background-color: var(--color-primary-accent);
+  border-radius: 2px;
+}
+
+.static-main-content h2 {
+  font-family: 'Reddit Sans', sans-serif;
+  color: var(--color-professional-nav);
+  font-size: 2rem;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid var(--color-light-background);
+  padding-bottom: 5px;
+}
+
+.static-main-content h3 {
+  font-family: 'Reddit Sans', sans-serif;
+  color: var(--color-strong-heading);
+  font-size: 1.5rem;
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+/* Paragraphs and Lists */
+.static-main-content p {
+  margin-bottom: 15px;
+  line-height: 1.7;
+  color: var(--color-deep-text);
+  font-size: 1rem;
+}
+
+.static-main-content ul,
+.static-main-content ol {
+  margin-bottom: 15px;
+  padding-left: 25px;
+  color: var(--color-deep-text);
+}
+
+.static-main-content li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.static-main-content strong {
+  color: var(--color-strong-heading);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .static-main-content {
+    padding: 30px 15px;
+    margin-bottom: 30px;
+  }
+  .static-main-content h1 {
+    font-size: 2.2rem;
+  }
+  .static-main-content h2 {
+    font-size: 1.8rem;
+  }
+  .static-main-content h3 {
+    font-size: 1.3rem;
+  }
+  .static-main-content p,
+  .static-main-content li {
+    font-size: 0.95rem;
+  }
+}

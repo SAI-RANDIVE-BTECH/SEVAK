@@ -1,0 +1,144 @@
+.aboutScreen {
+  padding: 40px 0;
+  background-color: var(--color-very-light-background);
+}
+
+.container {
+  max-width: 1000px; /* Slightly wider for textual content */
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.pageTitle {
+  font-family: 'Reddit Sans', sans-serif;
+  color: var(--color-strong-heading);
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.pageTitle::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background-color: var(--color-primary-accent);
+  border-radius: 2px;
+}
+
+.pageSubtitle {
+  font-size: 1.2rem;
+  color: var(--color-deep-text);
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 50px auto;
+}
+
+.section {
+  background-color: white;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--box-shadow-sm);
+  padding: 30px;
+  margin-bottom: 40px; /* Space between sections */
+  line-height: 1.7;
+}
+
+.section:last-child {
+  margin-bottom: 0; /* No margin after the last section */
+}
+
+.sectionHeading {
+  font-size: 2rem;
+  color: var(--color-professional-nav);
+  margin-bottom: 20px;
+  text-align: center;
+  border-bottom: 2px dashed var(--color-light-background);
+  padding-bottom: 10px;
+}
+
+.sectionText {
+  font-size: 1.1rem;
+  color: var(--color-deep-text);
+  margin-bottom: 15px;
+  text-align: justify; /* Justify text for a more formal look */
+}
+
+.offersList {
+  list-style: none; /* Remove default list style */
+  padding: 0;
+}
+
+.offersList li {
+  font-size: 1.1rem;
+  color: var(--color-deep-text);
+  margin-bottom: 10px;
+  display: flex; /* For icon alignment */
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.listItemIcon {
+  color: var(--color-success-accent); /* Bright Green checkmark */
+  font-size: 1.3rem;
+  font-weight: bold;
+  line-height: 1; /* Align with text */
+}
+
+/* Values Grid */
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.valueCard {
+  background-color: var(--color-light-background);
+  border-radius: var(--border-radius-md);
+  padding: 25px;
+  text-align: center;
+  box-shadow: var(--box-shadow-sm);
+  transition: transform var(--transition-speed);
+}
+
+.valueCard:hover {
+  transform: translateY(-5px);
+  background-color: var(--color-secondary-accent); /* Soft Gold/Mustard on hover */
+}
+
+.valueCard h3 {
+  font-size: 1.4rem;
+  color: var(--color-strong-heading);
+  margin-bottom: 10px;
+}
+
+.valueCard p {
+  font-size: 0.95rem;
+  color: var(--color-deep-text);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .pageTitle {
+    font-size: 2.5rem;
+  }
+  .sectionHeading {
+    font-size: 1.8rem;
+  }
+  .sectionText {
+    font-size: 1rem;
+    text-align: left; /* No justify on small screens */
+  }
+  .offersList li, .valueCard h3, .valueCard p {
+    font-size: 1rem;
+  }
+  .valuesGrid {
+    grid-template-columns: 1fr; /* Single column on small screens */
+  }
+}

@@ -1,0 +1,217 @@
+.contactScreen {
+  padding: 40px 0;
+  background-color: var(--color-very-light-background);
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.pageTitle {
+  font-family: 'Reddit Sans', sans-serif;
+  color: var(--color-strong-heading);
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.pageTitle::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background-color: var(--color-primary-accent);
+  border-radius: 2px;
+}
+
+.pageSubtitle {
+  font-size: 1.2rem;
+  color: var(--color-deep-text);
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 50px auto;
+}
+
+/* Contact Info Section */
+.contactInfoSection {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.infoCard {
+  background-color: white;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--box-shadow-sm);
+  padding: 30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.infoCard:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--box-shadow-md);
+}
+
+.iconPlaceholder {
+  font-size: 3rem;
+  color: var(--color-professional-nav);
+  margin-bottom: 15px;
+}
+
+.infoCard h3 {
+  font-size: 1.5rem;
+  color: var(--color-strong-heading);
+  margin-bottom: 10px;
+}
+
+.infoCard p {
+  font-size: 1rem;
+  color: var(--color-deep-text);
+  margin-bottom: 5px;
+  line-height: 1.5;
+}
+
+.infoCard .smallText {
+  font-size: 0.85rem;
+  color: rgba(var(--color-deep-text-rgb), 0.7);
+}
+
+/* Contact Form Section */
+.contactFormSection {
+  background-color: white;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--box-shadow-md);
+  padding: 40px;
+}
+
+.sectionHeading {
+  font-size: 2rem;
+  color: var(--color-professional-nav);
+  margin-bottom: 30px;
+  text-align: center;
+  border-bottom: 2px dashed var(--color-light-background);
+  padding-bottom: 10px;
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Space between form groups */
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--color-deep-text);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.formGroup input[type="text"],
+.formGroup input[type="email"],
+.formGroup input[type="tel"],
+.formGroup textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid var(--color-light-background);
+  border-radius: var(--border-radius-sm);
+  font-size: 1rem;
+  color: var(--color-deep-text);
+  background-color: var(--color-very-light-background);
+  transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus {
+  outline: none;
+  border-color: var(--color-primary-accent);
+  box-shadow: 0 0 0 3px rgba(var(--color-primary-accent-rgb), 0.2);
+}
+
+.formGroup textarea {
+  resize: vertical;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 15px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background-color: var(--color-primary-accent);
+  color: white;
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  transition: background-color var(--transition-speed), transform 0.1s ease-out;
+}
+
+.submitButton:hover {
+  background-color: var(--color-strong-heading);
+  transform: translateY(-2px);
+}
+
+.submitButton:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  transform: translateY(0);
+  box-shadow: none;
+  color: #666;
+}
+
+/* Messages */
+.loadingMessage,
+.successMessage,
+.errorMessage {
+  text-align: center;
+  padding: 10px;
+  border-radius: var(--border-radius-sm);
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+
+.loadingMessage {
+  background-color: var(--color-light-background);
+  color: var(--color-professional-nav);
+}
+
+.successMessage {
+  background-color: #ddffdd;
+  color: #28a745;
+}
+
+.errorMessage {
+  background-color: #ffdddd;
+  color: #d8000c;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .pageTitle {
+    font-size: 2.5rem;
+  }
+  .pageSubtitle {
+    font-size: 1rem;
+  }
+  .contactInfoSection {
+    grid-template-columns: 1fr; /* Single column on small screens */
+  }
+  .contactFormSection {
+    padding: 30px 20px;
+  }
+  .sectionHeading {
+    font-size: 1.8rem;
+  }
+}

@@ -1,0 +1,162 @@
+.servicesScreen {
+  padding: 40px 0;
+  background-color: var(--color-very-light-background); /* Use the very light background */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.pageTitle {
+  font-family: 'Reddit Sans', sans-serif;
+  color: var(--color-strong-heading);
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.pageTitle::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background-color: var(--color-primary-accent);
+  border-radius: 2px;
+}
+
+.pageSubtitle {
+  font-size: 1.2rem;
+  color: var(--color-deep-text);
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 50px auto;
+}
+
+/* Messages */
+.loadingMessage,
+.errorMessage,
+.noServicesMessage {
+  text-align: center;
+  padding: 20px;
+  font-size: 1.1rem;
+  border-radius: var(--border-radius-md);
+  margin-top: 30px;
+}
+
+.loadingMessage {
+  background-color: var(--color-light-background);
+  color: var(--color-professional-nav);
+}
+
+.errorMessage {
+  background-color: #ffdddd;
+  color: #d8000c;
+}
+
+.noServicesMessage {
+  background-color: var(--color-secondary-accent);
+  color: var(--color-strong-heading);
+}
+
+/* Service Grid */
+.serviceGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+  gap: 30px; /* Space between cards */
+}
+
+.serviceCard {
+  background-color: white;
+  border-radius: var(--border-radius-md);
+  padding: 30px;
+  box-shadow: var(--box-shadow-sm);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Pushes content to top/bottom, button always at bottom */
+}
+
+.serviceCard:hover {
+  transform: translateY(-8px); /* More pronounced lift effect */
+  box-shadow: var(--box-shadow-md);
+}
+
+.cardTitle {
+  font-size: 1.8rem;
+  color: var(--color-strong-heading);
+  margin-bottom: 10px;
+}
+
+.cardCategory {
+  font-size: 0.9rem;
+  color: var(--color-professional-nav);
+  background-color: var(--color-light-background);
+  padding: 5px 10px;
+  border-radius: var(--border-radius-sm);
+  width: fit-content;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.cardDescription {
+  font-size: 1rem;
+  color: var(--color-deep-text);
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex-grow: 1; /* Allows description to take up available space */
+}
+
+.cardPrice {
+  font-size: 1.1rem;
+  color: var(--color-deep-text);
+  margin-top: auto; /* Pushes price and button to bottom */
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.priceValue {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-primary-accent);
+}
+
+.bookNowButton {
+  width: 100%; /* Full width button in card */
+  padding: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+  background-color: var(--color-primary-accent);
+  color: white;
+}
+
+.bookNowButton:hover {
+  background-color: var(--color-strong-heading);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .pageTitle {
+    font-size: 2.5rem;
+  }
+  .pageSubtitle {
+    font-size: 1rem;
+  }
+  .serviceGrid {
+    grid-template-columns: 1fr; /* Single column on small screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .pageTitle {
+    font-size: 2rem;
+  }
+}

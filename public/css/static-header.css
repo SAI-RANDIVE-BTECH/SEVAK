@@ -1,0 +1,169 @@
+/* Global Variables for Color Palette - Duplicated for static pages */
+:root {
+  /* HEX Color Variables */
+  --color-primary-accent: #E84F5E; /* Vibrant Red/Coral */
+  --color-light-background: #FCDFC5; /* Light Background/Cream */
+  --color-strong-heading: #5C0E14; /* Deep Maroon/Burgundy */
+  --color-secondary-accent: #F0E193; /* Soft Gold/Mustard */
+  --color-very-light-background: #F3E5C3; /* Very Light Background/Cream */
+  --color-professional-nav: #174E4F; /* Dark Teal/Forest Green */
+  --color-success-accent: #8ED968; /* Bright Green/Lime */
+  --color-deep-text: #103C1F; /* Very Dark Green */
+
+  /* RGB values for rgba backgrounds / transparency */
+  --color-primary-accent-rgb: 232, 79, 94;
+  --color-light-background-rgb: 252, 223, 197;
+  --color-strong-heading-rgb: 92, 14, 20;
+  --color-secondary-accent-rgb: 240, 225, 147;
+  --color-very-light-background-rgb: 243, 229, 195;
+  --color-professional-nav-rgb: 23, 78, 79;
+  --color-success-accent-rgb: 142, 217, 104;
+  --color-deep-text-rgb: 16, 60, 31;
+
+  /* Additional general variables */
+  --transition-speed: 0.3s ease-in-out;
+  --border-radius-sm: 5px;
+  --border-radius-md: 10px;
+  --box-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --box-shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Font Imports - Duplicated for static pages */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Reddit+Sans:ital,wght@0,200..900;1,200..900&display=swap');
+
+/* Header.module.css content, adjusted for plain CSS */
+.header {
+  background-color: var(--color-professional-nav); /* Dark Teal/Forest Green for navigation */
+  padding: 15px 0;
+  box-shadow: var(--box-shadow-md); /* Subtle shadow for depth */
+  position: sticky; /* Makes header stick to top on scroll */
+  top: 0;
+  z-index: 1000; /* Ensures it stays on top of other content */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+.logo-container { /* Renamed from styles.logoContainer */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.logo {
+  color: white; /* Or a contrasting color from your palette */
+  font-family: 'Bebas Neue', sans-serif; /* For SEVAK logo/tagline */
+  font-size: 2.5rem; /* Larger font for logo */
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: color var(--transition-speed);
+  text-decoration: none; /* Ensure no underline */
+}
+
+.logo:hover {
+  color: var(--color-secondary-accent); /* Soft Gold/Mustard on hover */
+}
+
+.tagline {
+  color: rgba(255, 255, 255, 0.8); /* Slightly transparent white */
+  font-size: 0.85rem;
+  margin-top: -5px; /* Pull it slightly closer to the logo */
+  font-family: 'Reddit Sans', sans-serif; /* Ensure consistent font */
+}
+
+.nav {
+  margin-left: auto; /* Pushes nav to the right */
+}
+
+.nav-list { /* Renamed from styles.navList */
+  list-style: none;
+  display: flex;
+  gap: 30px; /* Space between nav items */
+  align-items: center;
+}
+
+.nav-item { /* Renamed from styles.navItem */
+  list-style: none; /* Ensure no bullet points */
+}
+
+.nav-link { /* Renamed from styles.navLink */
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 500;
+  position: relative;
+  transition: color var(--transition-speed), transform 0.1s ease-out;
+  padding: 5px 0; /* Padding for hover effect */
+  text-decoration: none; /* Ensure no underline */
+}
+
+.nav-link::after { /* Underline effect on hover */
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-primary-accent); /* Vibrant Red/Coral */
+  transform: scaleX(0); /* Start hidden */
+  transform-origin: bottom right;
+  transition: transform var(--transition-speed) ease-out;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1); /* Expand on hover */
+  transform-origin: bottom left;
+}
+
+.nav-link:hover {
+  color: var(--color-secondary-accent); /* Soft Gold/Mustard on hover */
+  transform: translateY(-2px); /* Subtle lift effect */
+}
+
+.cta-button { /* Renamed from styles.ctaButton */
+  background-color: var(--color-primary-accent); /* Vibrant Red/Coral */
+  color: white;
+  padding: 10px 20px;
+  border-radius: var(--border-radius-sm);
+  font-weight: 600;
+  transition: background-color var(--transition-speed), transform 0.1s ease-out;
+  text-decoration: none; /* Ensure no underline */
+  display: inline-block; /* For padding/sizing */
+}
+
+.cta-button:hover {
+  background-color: var(--color-strong-heading); /* Deep Maroon/Burgundy on hover */
+  color: white; /* Keep text white on hover */
+  transform: translateY(-2px); /* Subtle lift */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .nav {
+    margin-left: 0;
+    margin-top: 15px;
+  }
+
+  .nav-list { /* Renamed */
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .logo-container { /* Renamed */
+    align-items: center;
+  }
+}

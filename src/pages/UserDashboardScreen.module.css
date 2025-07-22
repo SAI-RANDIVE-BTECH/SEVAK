@@ -1,0 +1,323 @@
+.dashboardScreen {
+  padding: 40px 0;
+  background-color: var(--color-very-light-background);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.pageTitle {
+  font-family: 'Reddit Sans', sans-serif;
+  color: var(--color-strong-heading);
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.pageSubtitle {
+  font-size: 1.2rem;
+  color: var(--color-deep-text);
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: 500;
+}
+
+/* Messages */
+.loadingMessage,
+.errorMessage,
+.noUserMessage {
+  text-align: center;
+  padding: 20px;
+  font-size: 1.1rem;
+  border-radius: var(--border-radius-md);
+  margin-top: 30px;
+  color: white;
+}
+
+.loadingMessage {
+  background-color: var(--color-professional-nav);
+}
+
+.errorMessage {
+  background-color: var(--color-primary-accent);
+}
+
+.noUserMessage {
+  background-color: var(--color-secondary-accent);
+  color: var(--color-strong-heading);
+}
+
+/* Tabs Navigation */
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+  border-bottom: 2px solid var(--color-light-background);
+  gap: 10px; /* Space between tabs */
+  flex-wrap: wrap; /* Allow tabs to wrap on smaller screens */
+}
+
+.tabButton {
+  padding: 15px 25px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-deep-text);
+  position: relative;
+  transition: color var(--transition-speed);
+}
+
+.tabButton:hover {
+  color: var(--color-primary-accent);
+}
+
+.tabButton.activeTab {
+  color: var(--color-primary-accent);
+}
+
+.tabButton.activeTab::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; /* Align with border-bottom of tabs container */
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-primary-accent);
+  border-radius: 2px 2px 0 0;
+}
+
+/* Tab Content */
+.tabContent {
+  background-color: white;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--box-shadow-md);
+  padding: 40px;
+}
+
+.sectionHeading {
+  font-size: 2rem;
+  color: var(--color-professional-nav);
+  margin-bottom: 30px;
+  text-align: center;
+  border-bottom: 2px dashed var(--color-light-background);
+  padding-bottom: 10px;
+}
+
+/* My Bookings Section */
+.noBookingsMessage {
+  text-align: center;
+  padding: 20px;
+  font-size: 1.1rem;
+  color: var(--color-deep-text);
+}
+
+.bookingList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+.bookingCard {
+  background-color: var(--color-light-background);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--box-shadow-sm);
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  position: relative; /* For status badge positioning */
+}
+
+.bookingCard:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--box-shadow-md);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.cardHeader h3 {
+  font-size: 1.5rem;
+  color: var(--color-strong-heading);
+}
+
+.statusBadge {
+  padding: 5px 10px;
+  border-radius: var(--border-radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: white;
+}
+
+/* Status specific colors */
+.pending { background-color: #f0ad4e; } /* Orange */
+.confirmed { background-color: #5bc0de; } /* Blue */
+.inprogress { background-color: var(--color-professional-nav); } /* Dark Teal */
+.completed { background-color: var(--color-success-accent); } /* Bright Green */
+.cancelled { background-color: var(--color-primary-accent); } /* Red */
+.rejected { background-color: #d9534f; } /* Darker Red */
+
+.bookingCard p {
+  font-size: 0.95rem;
+  color: var(--color-deep-text);
+}
+
+.bookingCard strong {
+  color: var(--color-strong-heading);
+}
+
+.cardActions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+  justify-content: flex-end; /* Align buttons to the right */
+}
+
+.button-small {
+  padding: 8px 15px;
+  font-size: 0.9rem;
+  border-radius: var(--border-radius-sm);
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none; /* For Link acting as button */
+  color: white;
+  transition: background-color var(--transition-speed), transform 0.1s ease-out;
+}
+
+.viewDetailsButton {
+  background-color: var(--color-professional-nav);
+}
+
+.viewDetailsButton:hover {
+  background-color: var(--color-strong-heading);
+}
+
+.cancelButton {
+  background-color: var(--color-primary-accent);
+}
+
+.cancelButton:hover {
+  background-color: #c9302c; /* Slightly darker red */
+}
+
+/* My Wallet Section */
+.walletInfo {
+  text-align: center;
+  padding: 30px;
+  background-color: var(--color-light-background);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--box-shadow-sm);
+}
+
+.walletInfo p {
+  font-size: 1.1rem;
+  color: var(--color-deep-text);
+  margin-bottom: 10px;
+}
+
+.walletBalanceValue {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--color-primary-accent);
+  margin-bottom: 20px;
+}
+
+.walletNote {
+  font-size: 0.9rem;
+  color: rgba(var(--color-deep-text-rgb), 0.7);
+  margin-top: 15px;
+}
+
+/* My Profile Section */
+.profileInfo {
+  padding: 30px;
+  background-color: var(--color-light-background);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--box-shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.profileInfo p {
+  font-size: 1.1rem;
+  color: var(--color-deep-text);
+}
+
+.profileInfo strong {
+  color: var(--color-strong-heading);
+  min-width: 120px; /* Align labels */
+  display: inline-block;
+}
+
+.userRole {
+  background-color: var(--color-secondary-accent);
+  color: var(--color-strong-heading);
+  padding: 4px 10px;
+  border-radius: var(--border-radius-sm);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .pageTitle {
+    font-size: 2.5rem;
+  }
+  .pageSubtitle {
+    font-size: 1rem;
+  }
+  .tabs {
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+  .tabButton {
+    width: 100%;
+    max-width: 250px; /* Constrain width of stacked tabs */
+    padding: 12px 0;
+  }
+  .tabButton.activeTab::after {
+    left: 20%; /* Adjust underline position for centered text */
+    width: 60%;
+  }
+  .tabContent {
+    padding: 30px 20px;
+  }
+  .sectionHeading {
+    font-size: 1.8rem;
+  }
+  .bookingList {
+    grid-template-columns: 1fr; /* Single column on small screens */
+  }
+  .cardActions {
+    flex-direction: column;
+    gap: 5px;
+  }
+  .button-small {
+    width: 100%;
+  }
+  .walletBalanceValue {
+    font-size: 2.5rem;
+  }
+  .profileInfo {
+    padding: 20px;
+  }
+  .profileInfo p {
+    flex-direction: column; /* Stack name and value */
+    align-items: flex-start;
+  }
+}

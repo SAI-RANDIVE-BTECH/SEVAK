@@ -1,0 +1,309 @@
+.homeScreen {
+  display: flex;
+  flex-direction: column;
+  gap: 60px; /* Space between sections */
+  padding-bottom: 40px; /* Padding at the bottom of the screen */
+}
+
+/* Reusable Container for sections */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.sectionHeading {
+  font-family: 'Reddit Sans', sans-serif; /* Consistent heading font */
+  color: var(--color-strong-heading); /* Deep Maroon/Burgundy */
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+  padding-bottom: 10px; /* Space for underline effect */
+}
+
+.sectionHeading::after { /* Decorative underline */
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background-color: var(--color-primary-accent);
+  border-radius: 2px;
+}
+
+.sectionText {
+  font-size: 1.1rem;
+  color: var(--color-deep-text);
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 30px auto;
+}
+
+/* --- Hero Section --- */
+.heroSection {
+  background: linear-gradient(135deg, var(--color-light-background) 0%, var(--color-very-light-background) 100%);
+  display: flex;
+  flex-direction: row; /* Default for larger screens */
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  min-height: 70vh; /* Make it take up a good portion of the viewport height */
+  position: relative;
+  overflow: hidden; /* Hide anything overflowing from illustration */
+  border-radius: var(--border-radius-md); /* Subtle round corners */
+  margin: 20px auto; /* Margin to center it within the app container */
+  max-width: 1200px; /* Match main content width */
+  box-shadow: var(--box-shadow-md); /* Add some depth */
+}
+
+.heroContent {
+  flex: 1;
+  max-width: 600px;
+  text-align: left; /* Align text to left */
+  z-index: 2; /* Ensure content is above illustration */
+  padding-right: 40px; /* Space between text and illustration */
+}
+
+.heroTitle {
+  font-size: 4rem; /* Large and impactful */
+  color: var(--color-strong-heading);
+  margin-bottom: 15px;
+  line-height: 1.1;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05); /* Subtle text shadow */
+}
+
+.heroSubtitle {
+  font-size: 1.5rem;
+  color: var(--color-deep-text);
+  margin-bottom: 30px;
+  font-weight: 300;
+}
+
+.heroButtons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap; /* Allows buttons to wrap */
+}
+
+.heroCtaButton, .heroContactButton, .button-secondary, .ctaSignInButton {
+  /* Inherit base button styles from index.css */
+  /* These are for overrides or specific styles for these buttons */
+  font-weight: 600;
+  min-width: 180px;
+  text-align: center;
+}
+
+.heroContactButton {
+  background-color: transparent;
+  border: 2px solid var(--color-primary-accent);
+  color: var(--color-primary-accent);
+}
+
+.heroContactButton:hover {
+  background-color: var(--color-primary-accent);
+  color: white;
+}
+
+.heroIllustration {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 300px; /* Ensure illustration has space */
+  z-index: 1;
+  /* Optional: 3D background effects or shapes here */
+}
+
+.illustrationImage {
+  max-width: 100%;
+  height: auto;
+  animation: floatEffect 3s ease-in-out infinite alternate; /* Subtle floating animation */
+}
+
+@keyframes floatEffect {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-10px); }
+}
+
+/* --- About Section --- */
+.aboutSection {
+  background-color: var(--color-light-background);
+  padding: 60px 20px;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--box-shadow-sm);
+}
+
+.learnMoreButton {
+  display: block;
+  width: fit-content;
+  margin: 30px auto 0 auto; /* Center the button */
+  background-color: var(--color-professional-nav); /* Dark Teal/Forest Green */
+  color: white;
+}
+
+.learnMoreButton:hover {
+  background-color: var(--color-strong-heading);
+}
+
+/* --- Services Highlight Section --- */
+.servicesHighlightSection {
+  padding: 60px 0;
+}
+
+.serviceCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.serviceCard {
+  background-color: white;
+  border-radius: var(--border-radius-md);
+  padding: 30px;
+  text-align: center;
+  box-shadow: var(--box-shadow-sm);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.serviceCard:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: var(--box-shadow-md);
+}
+
+.iconPlaceholder {
+  font-size: 3rem; /* Large icon size */
+  margin-bottom: 20px;
+  color: var(--color-primary-accent); /* Vibrant Red/Coral */
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  color: var(--color-strong-heading);
+  margin-bottom: 10px;
+}
+
+.cardDescription {
+  font-size: 1rem;
+  color: var(--color-deep-text);
+  margin-bottom: 20px;
+  flex-grow: 1; /* Allows description to push link to bottom */
+}
+
+.cardLink {
+  color: var(--color-primary-accent);
+  font-weight: 600;
+  transition: color var(--transition-speed);
+}
+
+.cardLink:hover {
+  color: var(--color-strong-heading);
+}
+
+.viewAllServices {
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* --- CTA Section --- */
+.ctaSection {
+  background: linear-gradient(45deg, var(--color-primary-accent), var(--color-strong-heading));
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--box-shadow-md);
+}
+
+.ctaSection .sectionHeading {
+  color: white; /* Override heading color for this section */
+  font-size: 3rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.ctaSection .sectionHeading::after {
+  background-color: white; /* White underline for contrast */
+}
+
+.ctaSection .sectionText {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.ctaSignInButton {
+  background-color: var(--color-secondary-accent); /* Soft Gold/Mustard */
+  color: var(--color-strong-heading);
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  border-radius: var(--border-radius-md);
+}
+
+.ctaSignInButton:hover {
+  background-color: #f0c902; /* Slightly darker gold */
+  color: var(--color-deep-text);
+}
+
+
+/* Responsive Adjustments for HomeScreen */
+@media (max-width: 992px) {
+  .heroSection {
+    flex-direction: column-reverse; /* Stack content on smaller screens */
+    text-align: center;
+    padding: 60px 20px;
+  }
+
+  .heroContent {
+    padding-right: 0;
+    margin-bottom: 40px;
+    max-width: 100%; /* Take full width */
+  }
+
+  .heroTitle {
+    font-size: 3rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1.2rem;
+  }
+
+  .heroButtons {
+    justify-content: center; /* Center buttons */
+  }
+
+  .heroIllustration {
+    margin-bottom: 30px;
+  }
+
+  .sectionHeading {
+    font-size: 2rem;
+  }
+
+  .ctaSection .sectionHeading {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+  .heroSubtitle {
+    font-size: 1rem;
+  }
+  .sectionHeading {
+    font-size: 1.8rem;
+  }
+  .ctaSection .sectionHeading {
+    font-size: 2rem;
+  }
+  .heroCtaButton, .heroContactButton, .button-secondary, .ctaSignInButton {
+    width: 100%; /* Full width buttons on very small screens */
+    min-width: unset;
+  }
+}

@@ -1,0 +1,119 @@
+.footer {
+  background-color: var(--color-professional-nav); /* Same as header for consistency */
+  color: white;
+  padding: 40px 0;
+  margin-top: auto; /* Pushes the footer to the bottom if content is short */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow at the top */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-wrap: wrap; /* Allows sections to wrap on smaller screens */
+  justify-content: space-between;
+  gap: 30px; /* Space between sections */
+}
+
+.footerSection {
+  flex: 1; /* Each section takes equal flexible space */
+  min-width: 250px; /* Minimum width before wrapping */
+}
+
+.footerLogo {
+  color: white;
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 10px;
+  display: block; /* Make it a block to control margin */
+}
+
+.tagline {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 15px;
+}
+
+.copyright {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.sectionHeading {
+  font-size: 1.2rem;
+  color: var(--color-secondary-accent); /* Soft Gold/Mustard */
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.footerLinks {
+  list-style: none;
+  padding: 0;
+}
+
+.footerLinks li {
+  margin-bottom: 10px;
+}
+
+.link {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color var(--transition-speed);
+}
+
+.link:hover {
+  color: var(--color-primary-accent); /* Vibrant Red/Coral on hover */
+}
+
+.socialIcons {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.socialLink {
+  color: white;
+  font-size: 1.5rem;
+  transition: color var(--transition-speed), transform 0.1s ease-out;
+}
+
+.socialLink:hover {
+  color: var(--color-primary-accent); /* Vibrant Red/Coral on hover */
+  transform: translateY(-2px);
+}
+
+.contactInfo {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 10px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footerSection {
+    margin-bottom: 30px;
+    min-width: unset; /* Remove min-width on small screens */
+  }
+
+  .footerSection:last-child {
+    margin-bottom: 0; /* No bottom margin for the last section */
+  }
+
+  .footerLogo {
+    text-align: center;
+  }
+
+  .socialIcons {
+    justify-content: center; /* Center social icons */
+  }
+}
