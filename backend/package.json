@@ -6,8 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
-    "data:import": "node seeder",      
-    "data:destroy": "node seeder -d"   
+    "data:import": "node seeder",
+    "data:destroy": "node seeder -d"
   },
   "keywords": [
     "healthcare",
@@ -27,6 +27,7 @@
     "express": "^4.19.2",
     "express-async-handler": "^1.2.0",
     "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.17.0",
     "mongoose": "^8.4.1",
     "validator": "^13.12.0"
   },
